@@ -1,0 +1,15 @@
+{
+  "name": "bestofjs-admin",
+  "version": "1.0.0",
+  "description": "bestofjs admin application made with keystonejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Rambeau",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "keystone": "git+https://github.com/keystonejs/keystone.git"
+  }
+}
