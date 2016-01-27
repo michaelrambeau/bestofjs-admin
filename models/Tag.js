@@ -1,11 +1,6 @@
 var keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
-/**
- * User Model
- * ==========
- */
-
 var options = {
 	schema: {
 		collection: 'tag'
@@ -22,11 +17,6 @@ Tag.add({
 	createdAt: { type: Types.Date, default: Date.now },
 	updatedAt: { type: Types.Date }
 });
-
-
-/**
- * Registration
- */
 
 Tag.defaultColumns = 'code, name, description';
 Tag.register();

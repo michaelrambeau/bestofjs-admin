@@ -1,11 +1,6 @@
 var keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
-/**
- * User Model
- * ==========
- */
-
 var options = {
   schema: {
   	collection: 'project'
@@ -54,10 +49,6 @@ Project.add({
 Project.schema.methods.toString = function () {
 	return "Project " + this.name + ' ' + this._id;
 };
-
-/**
- * Registration
- */
 
 Project.defaultColumns = 'name, url, repository, tags, createdAt';
 Project.register();

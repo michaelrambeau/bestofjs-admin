@@ -53,9 +53,11 @@ keystone.set('locals', {
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'users': 'users',
 	'projects': 'projects',
 	'tags': 'tags',
+	'reviews': 'reviews',
+	'links': 'links',
+	'users': 'users',
 	'snapshots': 'snapshots'
 });
 

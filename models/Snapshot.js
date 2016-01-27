@@ -1,11 +1,6 @@
 var keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
-/**
- * User Model
- * ==========
- */
-
 var options = {
 	schema: {
 		collection: 'snapshot'
@@ -19,11 +14,6 @@ Snapshot.add({
 	createdAt: { type: Types.Date },
 	project: { type: Types.Relationship, ref: 'Project', many: false }
 });
-
-
-/**
- * Registration
- */
 
 Snapshot.defaultColumns = 'project, createdAt, stars';
 Snapshot.register();
