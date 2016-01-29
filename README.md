@@ -1,20 +1,21 @@
 ## Bestofjs admin web application
 
-Web applications built with KeystoneJS.
+Web application to manage bestof.js.org content.
 
-Built from scratch following these steps:
+Built with KeystoneJS, from scratch, following these steps:
 
-* install keystone from Github master branch
+* install keystone from Github master branch (v0.4)
 * create `.env` file
 * install `dotenv` module
 * create `keystone.js` startup file
-* add models
+* add models:
   * Project
   * User
   * Tag
   * Snapshot
   * Link
   * Review
+* Set npm start command in package.json: `node keystone`
 
 #### URLs
 

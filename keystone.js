@@ -10,22 +10,20 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-
-	'name': 'bestofjs',
-	'brand': 'bestofjs',
-	
-	'less': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
-	'view engine': 'jade',
-	
-	'auto update': false,
-	'session': true,
-	'auth': true,
-	'user model': 'User',
-	'cookie secret': '%mEEmg1hf>wkS.W4?TGJ~XNit%+{FO$e|X|R)p=BB!17pN]^5I<eK{Le[=hFO+e/'
-
+  'name': 'bestofjs',
+  'brand': 'bestofjs',
+  
+  'less': 'public',
+  'static': 'public',
+  'favicon': 'public/favicon.ico',
+  'views': 'templates/views',
+  'view engine': 'jade',
+  
+  'auto update': false,
+  'session': true,
+  'auth': true,
+  'user model': 'User',
+  'cookie secret': process.env.COOKIE_SECRET
 });
 
 // Load your project's Models

@@ -12,5 +12,8 @@
   "dependencies": {
     "dotenv": "^2.0.0",
     "keystone": "git+https://github.com/keystonejs/keystone.git"
-  }
+  },
+  "engines": {
+    "node": "4.2.4"
+  },  
 }
