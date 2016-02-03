@@ -17,9 +17,6 @@ Project.add({
 	url: { type: Types.Url, required: false },
 	repository: { type: Types.Url, required: true, initial: true },
 	
-	createdAt: { type: Types.Date, default: Date.now, format: 'YYYY-MM-DD' },
-	updatedAt: { type: Types.Date, format: 'YYYY-MM-DD' },
-	
 	// used to temporally disable a project from the list, screenshots will still be taken
 	disabled: { type: Types.Boolean, default: false }, 
 	
