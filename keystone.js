@@ -56,6 +56,7 @@ keystone.set('nav', {
 	'reviews': 'reviews',
 	'links': 'links',
 	'users': 'users',
+	'Hall of Fame': 'heros',
 	'snapshots': 'snapshots'
 });
 
