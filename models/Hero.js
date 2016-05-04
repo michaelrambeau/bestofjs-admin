@@ -1,8 +1,6 @@
 var keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
-var Hero = new keystone.List('Hero');
-
 var options = {
   schema: {
   	collection: 'heroes' // overwrite the default 'heros'!
@@ -18,13 +16,15 @@ var options = {
 var Hero = new keystone.List('Hero', options);
 
 Hero.add({
+  short_bio: { type: Types.Text },
   github: {
     login: { type: Types.Text, required: true, index: true, initial: true },
     name: { type: Types.Text, index: true },
     avatar_url: { type: Types.Url },
-    followers: { type: Types.Number }
-  }
+    followers: { type: Types.Number },
+  },
+  projects: { type: Types.Relationship, ref: 'Project', many: true }
 });
 
-Hero.defaultColumns = 'github.login, github.name, github.followers, createdAt';
+Hero.defaultColumns = 'github.login, github.name, github.followers, projects, createdAt';
 Hero.register();
