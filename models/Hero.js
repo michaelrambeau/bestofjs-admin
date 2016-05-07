@@ -21,10 +21,15 @@ Hero.add({
     login: { type: Types.Text, required: true, index: true, initial: true },
     name: { type: Types.Text, index: true },
     avatar_url: { type: Types.Url },
+    blog: { type: Types.Url },
     followers: { type: Types.Number },
   },
-  projects: { type: Types.Relationship, ref: 'Project', many: true }
+  projects: { type: Types.Relationship, ref: 'Project', many: true },
+  npm: {
+    count: { type: Types.Number },
+    username: { type: Types.Text }
+  }
 });
 
-Hero.defaultColumns = 'github.login, github.name, github.followers, projects, createdAt';
+Hero.defaultColumns = 'github.login, github.name, github.followers, npm.username, npm.count, projects, createdAt';
 Hero.register();
