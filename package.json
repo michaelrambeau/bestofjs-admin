@@ -1,16 +1,22 @@
 {
   "name": "bestofjs-admin",
   "version": "1.0.0",
-  "description": "bestofjs admin application made with keystonejs",
+  "description": "Bestofjs admin application made with KeystoneJS",
   "main": "index.js",
   "scripts": {
-    "start": "node keystone",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node keystone"
   },
   "author": "Michael Rambeau",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^2.0.0",
     "keystone": "git+https://github.com/keystonejs/keystone.git"
+  },
+  "repository": { 
+    "type" : "git",
+    "url" : "https://github.com/michaelrambeau/bestofjs-admin.git"
+  },
+  "engines" : { 
+    "node" : ">=5.0.0"
   }
 }

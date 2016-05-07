@@ -1,11 +1,24 @@
+If you want to star the project, please check the main repository https://github.com/michaelrambeau/bestofjs-webui
+
 ## Bestofjs admin web application
 
-Web application to manage bestof.js.org content.
+This is the web application used to manage http://bestof.js.org content, intended for "admin" users only.
 
-Built with KeystoneJS, from scratch, following these steps:
+This application is used to manually create:
+
+* Projects
+* Tags
+* Hall of Fame members
+
+Data is automatically updated every day by batches running from an other repository. 
+
+
+### Install
+
+Built with [KeystoneJS](http://www.keystonejs.com/) (a node.js cms and web app framework), following these steps:
 
 * install keystone from Github master branch (v0.4)
-* create `.env` file
+* create `.env` file to set credentials (`MONGO_URI`, `CLOUDINARY_URL` and `COOKIE_SECRET`)
 * install `dotenv` module
 * create `keystone.js` startup file
 * add models:
@@ -15,10 +28,17 @@ Built with KeystoneJS, from scratch, following these steps:
   * Snapshot
   * Link
   * Review
+  * Hero
 * Set npm start command in package.json: `node keystone`
 
-#### URLs
+Note: this application has been from built from scratch using KeystoneJS as a dependency, rather than recommended way, using the Yeoaon generator.
 
-Cloud9
+On May 2015, I got an issue an error about the .favicon file, I was unable to start the server.
+I had to create a `public` folder at the root level, with the missing `favicon.ico` file to solve the issue.
 
-http://bestofjs-keystonejs.michaelrambeau.c9users.io/keystone
+
+### Deploy
+
+This application was deployed on Heroku, using the free plan, since the application does not have to be up and running 24 hours a day.
+
+It can also be run on cloud environments like https://c9.io.
