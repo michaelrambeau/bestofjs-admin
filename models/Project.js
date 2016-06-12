@@ -31,7 +31,14 @@ Project.add({
 	  description:  { type: Types.Text },
 	  homepage:  { type: Types.Text },
 	  stargazers_count: { type: Types.Number },
-    pushed_at: {type: Types.Date, format: 'YYYY-MM-DD'}
+    pushed_at: {type: Types.Date, format: 'YYYY-MM-DD'},
+    branch: { type: Types.Text },
+    packageJson: { type: Types.Boolean }
+	},
+	npm: {
+	  name: { type: Types.Text, initial: true },
+	  version: { type: Types.Text },
+	  dependencies: { type: Types.TextArray }
 	},
 	
 	logo: { type: Types.CloudinaryImage, folder: 'project-logos', autoCleanup : true },
@@ -47,5 +54,5 @@ Project.schema.methods.toString = function () {
 	return "Project " + this.name + ' ' + this._id;
 };
 
-Project.defaultColumns = 'name, url, repository, tags, createdAt';
+Project.defaultColumns = 'name, npm.name, repository, tags, createdAt';
 Project.register();
