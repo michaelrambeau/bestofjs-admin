@@ -38,6 +38,16 @@ Project.add({
 	packagequality: {
 		quality: { type: Types.Number }
 	},
+  npms: {
+    score: {
+      detail: {
+        maintenance: Types.Number,
+        popularity: Types.Number,
+        quality: Types.Number
+      },
+      final: Types.Number
+    }
+  },	
 	npm: {
 	  name: { type: Types.Text, initial: true },
 	  version: { type: Types.Text },
@@ -57,5 +67,5 @@ Project.schema.methods.toString = function () {
 	return "Project " + this.name + ' ' + this._id;
 };
 
-Project.defaultColumns = 'name, npm.name, packagequality.quality, repository, tags, createdAt';
+Project.defaultColumns = 'name, npm.name, npms.score.final, packagequality.quality, repository, tags, createdAt';
 Project.register();
