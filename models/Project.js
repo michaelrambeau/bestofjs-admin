@@ -33,7 +33,8 @@ Project.add({
 	  stargazers_count: { type: Types.Number },
     pushed_at: {type: Types.Date, format: 'YYYY-MM-DD'},
     branch: { type: Types.Text },
-    packageJson: { type: Types.Boolean }
+    packageJson: { type: Types.Boolean },
+    owner_id: Types.Text
 	},
 	packagequality: {
 		quality: { type: Types.Number }
