@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^2.0.0",
-    "keystone": "git+https://github.com/keystonejs/keystone.git",
+    "keystone": "keystonejs/keystone",
     "underscore": "^1.8.3"
   },
   "repository": {
