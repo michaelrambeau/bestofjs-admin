@@ -16,10 +16,10 @@ Project.add({
   url: { type: Types.Url, required: false },
   repository: { type: Types.Url, required: true, initial: true },
 
-// used to temporally disable a project from the list, screenshots will still be taken
+  // used to temporally disable a project from the list, screenshots will still be taken
   disabled: { type: Types.Boolean, default: false },
 
-// used to definitevely remove a project: no screenshot will be taken.
+  // used to definitevely remove a project: no screenshot will be taken.
   deprecated: { type: Types.Boolean, default: false },
 
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
@@ -30,10 +30,11 @@ Project.add({
     description: { type: Types.Text },
     homepage: { type: Types.Text },
     stargazers_count: { type: Types.Number },
-    pushed_at: {type: Types.Date, format: 'YYYY-MM-DD'},
+    pushed_at: { type: Types.Date, format: 'YYYY-MM-DD' },
     branch: { type: Types.Text },
     packageJson: { type: Types.Boolean },
-    owner_id: Types.Text
+    owner_id: Types.Text,
+    topics: Types.TextArray
   },
   packagequality: {
     quality: { type: Types.Number }
@@ -54,7 +55,11 @@ Project.add({
     dependencies: { type: Types.TextArray }
   },
   svglogo: { type: Types.Html, wysiwyg: false },
-  logo: { type: Types.CloudinaryImage, folder: 'project-logos', autoCleanup: true },
+  logo: {
+    type: Types.CloudinaryImage,
+    folder: 'project-logos',
+    autoCleanup: true
+  },
   colors: {
     vibrant: { type: Types.Color },
     muted: { type: Types.Color },
@@ -67,5 +72,5 @@ Project.schema.methods.toString = function () {
   return 'Project ' + this.name + ' ' + this._id
 }
 
-Project.defaultColumns = 'name, npm.name, npms.score.final, packagequality.quality, repository, tags, createdAt'
+Project.defaultColumns = 'name, npm.name, npms.score.final, repository, tags, github.topics, createdAt'
 Project.register()
