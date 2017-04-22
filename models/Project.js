@@ -54,7 +54,10 @@ Project.add({
     version: { type: Types.Text },
     dependencies: { type: Types.TextArray }
   },
-  svglogo: { type: Types.Html, wysiwyg: false },
+  icon: {
+    url: { type: Types.Text },
+    inlineSvg: { type: Types.Html, wysiwyg: false }
+  },
   logo: {
     type: Types.CloudinaryImage,
     folder: 'project-logos',
