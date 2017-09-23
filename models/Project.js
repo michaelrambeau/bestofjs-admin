@@ -34,7 +34,9 @@ Project.add({
     branch: { type: Types.Text },
     packageJson: { type: Types.Boolean },
     owner_id: Types.Text,
-    topics: Types.TextArray
+    topics: Types.TextArray,
+    commit_count: Types.Number,
+    contributor_count: Types.Number
   },
   packagequality: {
     quality: { type: Types.Number }
@@ -71,9 +73,10 @@ Project.add({
   snapshots: { type: Types.Relationship, ref: 'Snapshot', many: true }
 })
 
-Project.schema.methods.toString = function () {
+Project.schema.methods.toString = function() {
   return 'Project ' + this.name + ' ' + this._id
 }
 
-Project.defaultColumns = 'name, npm.name, npms.score.final, repository, tags, github.topics, createdAt'
+Project.defaultColumns =
+  'name, npm.name, npms.score.final, repository, tags, github.commit_count, github.contributor_count, github.topics, createdAt'
 Project.register()
