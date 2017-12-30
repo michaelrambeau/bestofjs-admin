@@ -36,7 +36,8 @@ Project.add({
     owner_id: Types.Text,
     topics: Types.TextArray,
     commit_count: Types.Number,
-    contributor_count: Types.Number
+    contributor_count: Types.Number,
+    created_at: Date
   },
   packagequality: {
     quality: { type: Types.Number }
