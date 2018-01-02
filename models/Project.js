@@ -72,7 +72,7 @@ Project.add({
     darkVibrant: { type: Types.Color }
   },
   snapshots: { type: Types.Relationship, ref: 'Snapshot', many: true },
-  twitter: { type: Types.text }
+  twitter: { type: Types.Text }
 })
 
 Project.schema.methods.toString = function() {
