@@ -19,7 +19,7 @@ Project.add({
   // used to temporally disable a project from the list, screenshots will still be taken
   disabled: { type: Types.Boolean, default: false },
 
-  // used to definitevely remove a project: no screenshot will be taken.
+  // used to definitively remove a project: no screenshot will be taken.
   deprecated: { type: Types.Boolean, default: false },
 
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
@@ -72,7 +72,8 @@ Project.add({
     darkVibrant: { type: Types.Color }
   },
   snapshots: { type: Types.Relationship, ref: 'Snapshot', many: true },
-  twitter: { type: Types.Text }
+  twitter: { type: Types.Text },
+  comments: { type: Types.Textarea }
 })
 
 Project.schema.methods.toString = function() {
