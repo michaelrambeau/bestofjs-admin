@@ -57,6 +57,13 @@ Project.add({
     version: { type: Types.Text },
     dependencies: { type: Types.TextArray }
   },
+  bundle: {
+    name: { type: Types.Text },
+    dependencyCount: { type: Types.Number },
+    gzip: { type: Types.Number },
+    size: { type: Types.Number },
+    version: { type: Types.Number }
+  },
   icon: {
     url: { type: Types.Text },
     inlineSvg: { type: Types.Html, wysiwyg: false }
