@@ -62,7 +62,8 @@ Project.add({
     dependencyCount: { type: Types.Number },
     gzip: { type: Types.Number },
     size: { type: Types.Number },
-    version: { type: Types.Number }
+    version: { type: Types.Text },
+    errorMessage: { type: Types.Text }
   },
   icon: {
     url: { type: Types.Text },
@@ -88,5 +89,5 @@ Project.schema.methods.toString = function() {
 }
 
 Project.defaultColumns =
-  'name, npm.name, disabled, deprecated, github.pushed_at, tags, github.commit_count, github.contributor_count, github.topics, createdAt'
+  'name, npm.name, bundle.gzip, disabled, deprecated, github.pushed_at, tags, github.commit_count, github.contributor_count, github.topics, createdAt'
 Project.register()
