@@ -37,7 +37,7 @@ Project.add({
     topics: Types.TextArray,
     commit_count: Types.Number,
     contributor_count: Types.Number,
-    created_at: Date
+    created_at: { type: Types.Date }
   },
   packagequality: {
     quality: { type: Types.Number }
@@ -63,7 +63,8 @@ Project.add({
     gzip: { type: Types.Number },
     size: { type: Types.Number },
     version: { type: Types.Text },
-    errorMessage: { type: Types.Text }
+    errorMessage: { type: Types.Text },
+    updatedAt: { type: Types.Date }
   },
   icon: {
     url: { type: Types.Text },
