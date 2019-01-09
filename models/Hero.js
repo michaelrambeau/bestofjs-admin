@@ -17,6 +17,9 @@ var Hero = new keystone.List('Hero', options);
 
 Hero.add({
   short_bio: { type: Types.Text },
+  url: { type: Types.Url, required: false },
+  // used to override the GitHub blog URLs (to avoid invalid or non relevant URLs put inside GitHub blog URL)
+  override_url: { type: Types.Boolean, default: false },  
   github: {
     login: { type: Types.Text, required: true, index: true, initial: true },
     name: { type: Types.Text, index: true },
