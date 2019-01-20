@@ -42,7 +42,8 @@ Project.add({
     topics: Types.TextArray,
     commit_count: Types.Number,
     contributor_count: Types.Number,
-    created_at: { type: Types.Date }
+    created_at: { type: Types.Date },
+    archived: { type: Types.Boolean }
   },
   packagequality: {
     quality: { type: Types.Number }
