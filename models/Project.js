@@ -43,7 +43,8 @@ Project.add({
     commit_count: Types.Number,
     contributor_count: Types.Number,
     created_at: { type: Types.Date },
-    archived: { type: Types.Boolean }
+    archived: { type: Types.Boolean },
+    last_commit: { type: Types.Date, format: "YYYY-MM-DD" }
   },
   packagequality: {
     quality: { type: Types.Number }
@@ -96,5 +97,5 @@ Project.schema.methods.toString = function() {
 };
 
 Project.defaultColumns =
-  "name, npm.name, bundle.gzip, disabled, deprecated, github.pushed_at, tags, github.commit_count, github.contributor_count, github.topics, createdAt";
+  "name, npm.name, disabled, deprecated, github.last_commit, tags, github.commit_count, github.contributor_count, github.topics, createdAt";
 Project.register();
