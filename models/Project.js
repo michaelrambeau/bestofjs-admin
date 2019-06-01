@@ -96,6 +96,13 @@ Project.schema.methods.toString = function() {
   return "Project " + this.name + " " + this._id;
 };
 
-Project.defaultColumns =
-  "name, npm.name, disabled, deprecated, github.last_commit, tags, github.commit_count, github.contributor_count, github.topics, createdAt";
+Project.defaultColumns = [
+  "name",
+  "npm.name",
+  "disabled",
+  "deprecated",
+  "github.last_commit",
+  "tags",
+  "createdAt"
+];
 Project.register();
