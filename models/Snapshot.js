@@ -1,23 +1,25 @@
-const keystone = require('keystone')
-const Types = keystone.Field.Types
+const keystone = require("keystone");
+const Types = keystone.Field.Types;
 
 var options = {
   schema: {
-    collection: 'snapshot'
+    collection: "snapshots"
   }
-}
-var Snapshot = new keystone.List('Snapshot', options)
+};
+var Snapshot = new keystone.List("Snapshot", options);
 
 Snapshot.add({
-  stars: { type: Types.Number, initial: true },
-  createdAt: { type: Types.Datetime, initial: true },
+  year: { type: Types.Number },
   project: {
     type: Types.Relationship,
-    ref: 'Project',
+    ref: "Project",
     many: false,
     initial: true
-  }
-})
+  },
+  createdAt: { type: Types.Datetime },
+  updatedAt: { type: Types.Datetime },
+  fullName: { type: Types.Text }
+});
 
-Snapshot.defaultColumns = 'project, createdAt, stars'
-Snapshot.register()
+Snapshot.defaultColumns = "project, year, fullName, createdAt, updatedAt";
+Snapshot.register();

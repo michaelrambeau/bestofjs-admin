@@ -3,7 +3,7 @@ const Types = keystone.Field.Types;
 
 const options = {
   schema: {
-    collection: "project"
+    collection: "projects"
   },
   defaultSort: "-createdAt",
   track: true
@@ -87,7 +87,6 @@ Project.add({
     muted: { type: Types.Color },
     darkVibrant: { type: Types.Color }
   },
-  snapshots: { type: Types.Relationship, ref: "Snapshot", many: true },
   twitter: { type: Types.Text },
   comments: { type: Types.Textarea }
 });
