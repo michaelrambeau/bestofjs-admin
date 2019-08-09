@@ -62,7 +62,8 @@ Project.add({
   npm: {
     name: { type: Types.Text, initial: true },
     version: { type: Types.Text },
-    dependencies: { type: Types.TextArray }
+    dependencies: { type: Types.TextArray },
+    deprecated: { type: Types.Boolean, default: false }
   },
   bundle: {
     name: { type: Types.Text },
