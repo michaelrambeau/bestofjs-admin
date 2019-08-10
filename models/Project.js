@@ -19,7 +19,7 @@ Project.add({
   // used to override the GitHub homepage URLs (like shortened URLs to npm packages or GitHub repos, or URL that advertise products)
   override_url: { type: Types.Boolean, default: false },
 
-  repository: { type: Types.Url, required: true, initial: true },
+  repository: { type: Types.Url, required: true, initial: true, unique: true },
 
   // used to temporally disable a project from the list, screenshots will still be taken
   disabled: { type: Types.Boolean, default: false },
@@ -31,7 +31,7 @@ Project.add({
 
   github: {
     name: { type: Types.Text },
-    full_name: { type: Types.Text },
+    full_name: { type: Types.Text, unique: true },
     description: { type: Types.Text },
     homepage: { type: Types.Text },
     stargazers_count: { type: Types.Number },
@@ -96,6 +96,25 @@ Project.schema.methods.toString = function() {
   return "Project " + this.name + " " + this._id;
 };
 
+Project.schema.methods.setGitHubFullName = function() {
+  const fullName = extractGitHubFullName(this.repository);
+  if (!fullName)
+    throw new Error(`Unable to parse the repository URL to ${this.repository}`);
+  this.github.full_name = fullName;
+};
+
+Project.schema.pre("save", function(next) {
+  const isGitHubRepositoryURL = url => url.startsWith("https://github.com/");
+
+  if (!isGitHubRepositoryURL(this.repository)) {
+    throw new Error(`The "repository" should be a GitHub URL!`);
+  }
+
+  if (!this.github.full_name) this.setGitHubFullName();
+
+  next();
+});
+
 Project.defaultColumns = [
   "name",
   "npm.name",
@@ -105,4 +124,17 @@ Project.defaultColumns = [
   "tags",
   "createdAt"
 ];
+
 Project.register();
+
+function extractGitHubFullName(url) {
+  const re = new RegExp(
+    "https://github.com/([a-zA-Z0-9._-]+)/([a-zA-Z0-9._-]+)"
+  );
+  const parts = re.exec(url);
+  if (!parts) return "";
+  if (parts.length < 3) return "";
+  const owner = parts[1];
+  const name = parts[2];
+  return `${owner}/${name}`;
+}
