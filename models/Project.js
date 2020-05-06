@@ -89,7 +89,8 @@ Project.add({
     darkVibrant: { type: Types.Color }
   },
   twitter: { type: Types.Text },
-  comments: { type: Types.Textarea }
+  comments: { type: Types.Textarea },
+  aliases: { type: Types.TextArray }
 });
 
 Project.schema.methods.toString = function() {
