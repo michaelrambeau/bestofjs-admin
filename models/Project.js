@@ -75,37 +75,26 @@ Project.add({
     updatedAt: { type: Types.Date }
   },
   icon: {
-    url: { type: Types.Text },
-    inlineSvg: { type: Types.Html, wysiwyg: false }
-  },
-  logo: {
-    type: Types.CloudinaryImage,
-    folder: "project-logos",
-    autoCleanup: true
-  },
-  colors: {
-    vibrant: { type: Types.Color },
-    muted: { type: Types.Color },
-    darkVibrant: { type: Types.Color }
+    url: { type: Types.Text }
   },
   twitter: { type: Types.Text },
   comments: { type: Types.Textarea },
   aliases: { type: Types.TextArray }
 });
 
-Project.schema.methods.toString = function() {
+Project.schema.methods.toString = function () {
   return "Project " + this.name + " " + this._id;
 };
 
-Project.schema.methods.setGitHubFullName = function() {
+Project.schema.methods.setGitHubFullName = function () {
   const fullName = extractGitHubFullName(this.repository);
   if (!fullName)
     throw new Error(`Unable to parse the repository URL to ${this.repository}`);
   this.github.full_name = fullName;
 };
 
-Project.schema.pre("save", function(next) {
-  const isGitHubRepositoryURL = url => url.startsWith("https://github.com/");
+Project.schema.pre("save", function (next) {
+  const isGitHubRepositoryURL = (url) => url.startsWith("https://github.com/");
 
   if (!isGitHubRepositoryURL(this.repository)) {
     throw new Error(`The "repository" should be a GitHub URL!`);
